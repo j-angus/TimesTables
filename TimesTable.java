@@ -110,8 +110,8 @@ class TimesTable {
    // return result of table sum using user selected table
    public int getSum(int table, int index) {
       if (table >= TABLE_MIN && table <= TABLE_MAX) {
-      if (index >= TABLE_MIN && index <= TABLE_MAX) {
-         return timesTables[table][index];
+         if (index >= TABLE_MIN && index <= TABLE_MAX) {
+            return timesTables[table][index];
       }
       else {
          System.out.println(index + " is not between " +
