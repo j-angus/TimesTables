@@ -3,7 +3,7 @@
  *    TimesTables program... :)
  * Author:     Jason Angus
  * File:       Menu.java
- * Last Edit:  09/10/2010
+ * Last Edit:  10/10/2010
  */
 
 import java.util.*;
@@ -59,7 +59,7 @@ public class Menu {
    public void goChoice1() {
       // ask user for the table they want to test then do it!
       while (true) {
-         System.out.println("You chose Single Times Tables! - menu #1");
+         System.out.println("Single Times Tables! - Menu Item #1\n");
          System.out.print("Enter table to attempt (1 - 12), or zero to quit: ");
          Scanner in = new Scanner(System.in);
          int choice = 0;
@@ -80,8 +80,15 @@ public class Menu {
                   myTable.displaySum(i);
                   // TODO: create more robust user input method
                   // current method breaks too easily if non-integer entered
-                  answer = in.nextInt();
-                  ++tries;
+                  // Check for integer input
+                  if (in.hasNextInt()) {
+                     answer = in.nextInt();
+                     ++tries;
+                  }
+                  else {
+                     System.out.println("\nERROR: Not an integer!!\n");
+                     in.nextLine(); // Throw away the buffer
+                  }
                } while (answer != myTable.getSum(i));
             } // end for
             System.out.printf("Great! You took %d goes!\n", tries);
