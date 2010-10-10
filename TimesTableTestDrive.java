@@ -10,7 +10,6 @@ public class TimesTableTestDrive {
    public static void main (String[] args) {
       TimesTable myTables = new TimesTable();
       Menu myMenu = new Menu();
-      HelpMeOut myHelper = new HelpMeOut();
 
       // main program loop here...
       while(true) {

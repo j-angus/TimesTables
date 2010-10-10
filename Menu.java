@@ -78,11 +78,11 @@ public class Menu {
                int answer = -1;
                do {
                   myTable.displaySum(i);
-                  // TODO: create more robust user input method
-                  // current method breaks too easily if non-integer entered
+                  
                   // Check for integer input
                   if (in.hasNextInt()) {
                      answer = in.nextInt();
+                     in.nextLine(); // Throw away the buffer
                      ++tries;
                   }
                   else {
