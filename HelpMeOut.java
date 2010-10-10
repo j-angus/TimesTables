@@ -16,8 +16,10 @@ public class HelpMeOut {
          BufferedReader is = new BufferedReader(
          new InputStreamReader(System.in));
          inputLine = is.readLine();
-         if (inputLine.length() == 0) return null;
-      } Catch(IOException exception) {
+         if (inputLine.length() == 0) 
+            return null;
+      } 
+      catch(IOException exception) {
          System.out.println("IOException " + exception);
       }
       return inputLine;

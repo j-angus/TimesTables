@@ -25,14 +25,15 @@ public class Menu {
    } // close displayMenu method
 
    public boolean getMenuSelection() {
-      System.out.println("Make a Selection:");
+      System.out.print("Make a Selection: ");
       Scanner in = new Scanner(System.in);
       int choice = in.nextInt();
       if (choice >= MENU_MIN && choice <= MENU_MAX) {
          this.menuSelection = choice;
          this.validChoice = true;
          return true;
-      } else {
+      } 
+      else {
          System.out.println("Make a Valid Selection PinHead!");
          this.validChoice = false;
          return false;
@@ -53,7 +54,6 @@ public class Menu {
          }
       } // close outer if
 
-
    } // close goGoGO method
 
    public void goChoice1() {
@@ -62,7 +62,11 @@ public class Menu {
          System.out.println("You chose Single Times Tables! - menu #1");
          System.out.print("Enter table to attempt (1 - 12), or zero to quit: ");
          Scanner in = new Scanner(System.in);
-         int choice = in.nextInt();
+         int choice = 0;
+         if (in.hasNextInt()) // Confirm user has entered an integer.
+            choice = in.nextInt();
+         else
+            System.out.println("\nERROR: Invalid choice!\n");
          if (choice == 0)
             break;
          else if (choice >= TimesTable.TABLE_MIN &&
@@ -85,8 +89,6 @@ public class Menu {
             System.out.println("Thats gotta be a table between 1 and 12 you Ninny!");
          } // end else
       } // end while
-
-
    } // close goChoice1 method
 
    public void goChoice2() {
