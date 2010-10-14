@@ -24,36 +24,39 @@ public class Menu {
       System.out.println("");
    } // close displayMenu method
 
-   public boolean getMenuSelection() {
-      System.out.print("Make a Selection: ");
+   public void getMenuSelection() {
       Scanner in = new Scanner(System.in);
-      int choice = in.nextInt();
-      if (choice >= MENU_MIN && choice <= MENU_MAX) {
-         this.menuSelection = choice;
-         this.validChoice = true;
-         return true;
-      } 
-      else {
-         System.out.println("Make a Valid Selection PinHead!");
-         this.validChoice = false;
-         return false;
+      int choice = 0;
+      
+      System.out.print("Make a Selection: ");
+      if (in.hasNextInt()) 
+         choice = in.nextInt();
+         
+      switch (choice)
+      {
+         case 3: case 2: case 1:
+            this.validChoice = true;
+            this.menuSelection = choice;
+            break;
+         default:
+            this.validChoice = false;
+            System.out.println("\nERROR: Not a valid choice!");
       }
-
+      return;
    } // close  getMenuSelection method
 
    public void goGoGO() {
       if ( this.validChoice ) {
          if (this.menuSelection == 1) {
             goChoice1();
-         } else // close option 1
-         if (this.menuSelection == 2) {
+         } // close option 1
+         else if (this.menuSelection == 2) {
             goChoice2();
-         } else // close option 1
-         if (this.menuSelection == 3) {
+         } // close option 2
+         else if (this.menuSelection == 3) {
             goChoice3();
          }
       } // close outer if
-
    } // close goGoGO method
 
    public void goChoice1() {
